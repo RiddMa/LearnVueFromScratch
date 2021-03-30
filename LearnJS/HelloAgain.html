@@ -94,17 +94,56 @@
         // };
         // console.log(absolute(-3));
 
-        function abs() {
-            if (arguments.length === 0) {
-                return 0;
-            }
-            var x = arguments[0];
-            return x >= 0 ? x : -x;
+        // function abs() {
+        //     if (arguments.length === 0) {
+        //         return 0;
+        //     }
+        //     var x = arguments[0];
+        //     return x >= 0 ? x : -x;
+        // }
+        // abs(); // 0
+        // abs(10); // 10
+        // abs(-9); // 9
+        //
+        // //ES6标准引入了rest参数
+        // function foo(a, b, ...rest) {
+        //     console.log('a = ' + a);
+        //     console.log('b = ' + b);
+        //     console.log(rest);
+        // }
+        // foo(1, 2, 3, 4, 5);
+        // // 结果:
+        // // a = 1
+        // // b = 2
+        // // Array [ 3, 4, 5 ]
+        // foo(1);
+        // // 结果:
+        // // a = 1
+        // // b = undefined
+        // // Array []
+
+        // function sum(a, ...rest) {//
+        //     var res = 0;
+        //     rest.forEach(function (value) {
+        //         res += value;
+        //     })
+        //     return res;
+        // }
+        // console.log(sum(1, 2, 3, 4, 5, 6));
+
+        //所以正确的多行写法是：
+        function foo() {
+            return { // 这里不会自动加分号，因为{表示语句尚未结束
+                name: 'foo'
+            };
         }
 
-        abs(); // 0
-        abs(10); // 10
-        abs(-9); // 9
+        // function area_of_circle(r, pi) {
+        //     if(typeof pi != "number"){
+        //         pi = 3.14;
+        //     }
+        //
+        // }
 
     </script>
 </head>
