@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello?</title>
+    <script>
+        // var s = 'hello, i\'m ridd';
+        // console.log(s);
+        // var upper = s.toUpperCase();
+        // console.log(upper);
+        // var arr0 = [0, 1, 2];
+        // console.log(arr0.length);
+        // arr0.push(3);
+        // console.log(arr0.length);
+        //
+        // var arr = ['小明', '小红', '大军', '阿黄'];
+        // arr.sort();
+        // console.log(`欢迎${arr.slice(0, -1)}和${arr[arr.length - 1]}同学！`);
+        //
+        // var Ridd =
+        //     {
+        //         name: 'Ridd',
+        //         age: 21,
+        //         school: 'BUPT'
+        //     }
+        // console.log(Ridd);
+        // console.log(Ridd['name']);
+        // console.log('toString' in Ridd);
+        // console.log(Ridd.hasOwnProperty('age'));
+        // console.log(Ridd.hasOwnProperty('toString'));
+        // for (const key in Ridd) {
+        //     console.log(key);
+        // }
+        //
+        // var array = [10, 20, 30];
+        // var sum = 0;
+        // for (var i in array) {
+        //     if (array.hasOwnProperty(i)) {
+        //         console.log(i);
+        //         console.log(array[i]);
+        //         sum += i;
+        //     }
+        // }
+        // console.log(sum);//0012
+        //
+        // sum = 0;
+        // for (var j = 0; j < array.length; j++) {
+        //     console.log(array[j]);
+        //     sum += array[j];
+        // }
+        // console.log(sum);//60
+
+
+        // var m = new Map([['Ridd', 666], [1, 75], ['Tracy', 85]]);
+        // console.log(m.get('Ridd')); // 95
+        // console.log(m);
+        // m.set('LXY', 233);
+        // m.delete('LXY');
+        // m.has('LXY');
+        // m.get('Ridd');
+        // alert(m.get(1));
+        //
+        // var s1 = new Set(); // 空Set
+        // var s2 = new Set([1, 2, 3]); // 含1, 2, 3
+        // s2.delete(3);
+        // //set可以用于数组去重
+
+
+        // var a = ['A', 'B', 'C'];
+        // a.forEach(function (value, index, array) {
+        //     // element: 指向当前元素的值
+        //     // index: 指向当前索引
+        //     // array: 指向Array对象本身
+        //     console.log(value + ', index = ' + index);
+        // });
+        //
+        // function abs(x)
+        // {
+        //     if(x>=0) {
+        //         return x;
+        //     }else {
+        //         return -x;
+        //     }
+        // }
+        // console.log(abs(-1));
+        //
+        // var absolute = function (x)//匿名函数
+        // {
+        //     if(x>=0) {
+        //         return x;
+        //     }else {
+        //         return -x;
+        //     }
+        // };
+        // console.log(absolute(-3));
+
+        function abs() {
+            if (arguments.length === 0) {
+                return 0;
+            }
+            var x = arguments[0];
+            return x >= 0 ? x : -x;
+        }
+
+        abs(); // 0
+        abs(10); // 10
+        abs(-9); // 9
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
