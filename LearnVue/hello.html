@@ -1,13 +1,36 @@
+<!--<html>-->
+<!--<head>-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<div id="app">-->
+<!--    {{ message }}-->
+<!--</div>-->
+
+<!--<script src="index.js"></script>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-
-<div id="app">
-    {{ message }}
+<div id='main'>
+    <p>{{msg}}</p>
 </div>
 
-<script src="index.js"></script>
+<script>
+    var demo = new Vue({
+        el: '#main',
+        data: {
+            msg: 'hello world'
+        }
+    });
+</script>
 </body>
 </html>

@@ -131,12 +131,12 @@
         // }
         // console.log(sum(1, 2, 3, 4, 5, 6));
 
-        //所以正确的多行写法是：
-        function foo() {
-            return { // 这里不会自动加分号，因为{表示语句尚未结束
-                name: 'foo'
-            };
-        }
+        // //所以正确的多行写法是：
+        // function foo() {
+        //     return { // 这里不会自动加分号，因为{表示语句尚未结束
+        //         name: 'foo'
+        //     };
+        // }
 
         // function area_of_circle(r, pi) {
         //     if(typeof pi != "number"){
@@ -144,6 +144,56 @@
         //     }
         //
         // }
+
+        // // 唯一的全局变量MYAPP:
+        // var MYAPP = {};
+        //
+        // // 其他变量:
+        // MYAPP.name = 'myapp';
+        // MYAPP.version = 1.0;
+        //
+        // // 其他函数:
+        // MYAPP.foo = function () {
+        //     return 'foo';
+        // };
+
+        // var [x, y, z] = ['hello', 'JavaScript', 'ES6'];//解构赋值
+        // let [x, [y, z]] = ['hello', ['JavaScript', 'ES6']];
+
+        //({x, y} = { name: '小明', x: 100, y: 200});//对已经声明的变量解构赋值，加小括号
+
+        //修复的办法也不是没有，我们用一个that变量首先捕获this：
+
+        // var xiaoming = {
+        //     name: '小明',
+        //     birth: 1990,
+        //     age: function () {
+        //         var that = this; // 在方法内部一开始就捕获this
+        //         function getAgeFromBirth() {
+        //             var y = new Date().getFullYear();
+        //             return y - that.birth; // 用that而不是this
+        //         }
+        //
+        //         return getAgeFromBirth();
+        //     }
+        // };
+        // xiaoming.age(); // 25
+        // //用var that = this;，你就可以放心地在方法内部定义其他函数，而不是把所有语句都堆到一个方法中。
+
+
+        /*
+        this这个 keyword非常的困惑,但是其实有一个好方法可以理解.
+
+1. 检查 ' . ' 左边是谁invoke 这个函数. 例如 xiaoming.age();  age函数里面有this, 然后 '. ' 旁边是xiaoming , 那么this就是指向xiaoming了.这种叫做 Implicit Binding.
+
+2. 如果点旁边没有,那就检查有没有用到 bind, apply, call 这三种, 有的话就是调用此方法的对象. 这种叫做 explicit binding.
+
+3. 如果上面两个都没有就检查代码里面有没有用到new 这个keyword, 有的话那就是指向new旁边的函数对象. 这种叫做new binding
+
+4. 上面三个都没有, 检查是不是有arrow function, 有arrow function的话就是, 那么指向是arrow function的lexical binding 的对象. 就是她的parent. 这种叫做 lexical binding
+
+5. 全部都没有如果不是strict mode那就是window对象了.. strict就是 error (undefined).
+         */
 
     </script>
 </head>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TabClickTest</title>
+    <script src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id = "main">
+<!--    <nav v-bind:class="active" v-on:click.prevent>-->
+<!--        <a href="#" class = "home" v-on:click="makeActive('home')">Home!</a>-->
+<!--        <a href="#" class = "contact" v-on:click="makeActive('contact')">Contact!</a>-->
+<!--    </nav>-->
+    <p>It's {{active}} page.</p>
+</div>
+
+<script>
+    var demo = new Vue({
+        el: '#main',
+        data:{
+            active:'home'
+        },
+        methods:{
+            makeActive:function(item){
+                this.active = item;
+            }
+        }
+    });
+</script>
+</body>
+</html>
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <meta charset="utf-8">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--    <title>Vue.js 导航菜单</title>-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+
+<!--</head>-->
+<!--<body>-->
+
+<!--<div id="main">-->
+
+<!--    &lt;!&ndash; 激活的菜单样式为  active 类 &ndash;&gt;-->
+<!--    &lt;!&ndash; 为了阻止链接在点击时跳转，我们使用了 "prevent" 修饰符 (preventDefault 的简称)。 &ndash;&gt;-->
+
+<!--    <nav v-bind:class="active" v-on:click.prevent>-->
+
+<!--        &lt;!&ndash; 当菜单上的链接被点击时，我们调用了 makeActive 方法, 该方法在 Vue 实例中创建。 &ndash;&gt;-->
+
+<!--        <a href="#" class="home" v-on:click="makeActive('home')">Home</a>-->
+<!--        <a href="#" class="projects" v-on:click="makeActive('projects')">Projects</a>-->
+<!--        <a href="#" class="services" v-on:click="makeActive('services')">Services</a>-->
+<!--        <a href="#" class="contact" v-on:click="makeActive('contact')">Contact</a>-->
+<!--    </nav>-->
+
+<!--    &lt;!&ndash; 以下 "active" 变量会根据当前选中的值来自动变换 &ndash;&gt;-->
+
+<!--    <p>您选择了 <b>{{active}} 菜单</b></p>-->
+<!--</div>-->
+
+<!--<script>-->
+<!--    // 创建一个新的 Vue 实例-->
+<!--    var demo = new Vue({-->
+<!--        // DOM 元素，挂载视图模型-->
+<!--        el: '#main',-->
+
+<!--        // 定义属性，并设置初始值-->
+<!--        data: {-->
+<!--            active: 'home'-->
+<!--        },-->
+
+<!--        // 点击菜单使用的函数-->
+<!--        methods: {-->
+<!--            makeActive: function(item){-->
+<!--                // 模型改变，视图会自动更新-->
+<!--                this.active = item;-->
+<!--            }-->
+<!--        }-->
+<!--    });-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
