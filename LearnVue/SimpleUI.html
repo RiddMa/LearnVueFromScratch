@@ -1,9 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>空调管理系统</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- import element CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-plus/lib/theme-chalk/index.css">
+    <!-- import element JavaScript -->
+    <script src="https://unpkg.com/element-plus/lib/index.full.js"></script>
 </head>
 <body>
 <div id="disp">
@@ -11,8 +16,9 @@
     <br>
     Current mode: <b>{{ curn_mode }}</b>
     <br>
-    <button v-on:click="temp_up">+</button>
+    <el-button v-on:click="temp_up">+</el-button>
     <button v-on:click="temp_down">-</button>
+    <el-button>Element Button Test</el-button>
     <br>
     <button v-on:click="change_mode('Cooling')">Cooling</button>
     <button v-on:click="change_mode('Heating')">Heating</button>
@@ -24,8 +30,8 @@
 
 
 <script>
-    var disp = new Vue({
-        el: "#disp",
+
+    const Disp ={
         data: function () {
             return {
                 curn_temp: 26,
@@ -46,7 +52,12 @@
         }
 
 
-    });
+    };
+
+    const disp = Vue.createApp(Disp);
+    disp.use(ElementPlus);
+    disp.mount("#disp");
+
     var conn = new Vue({
         el: "#conn",
         components: {

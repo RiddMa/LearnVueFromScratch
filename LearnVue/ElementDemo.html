@@ -1,0 +1,144 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <script src="https://unpkg.com/vue@next"></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-plus/lib/theme-chalk/index.css">
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-plus/lib/index.full.js"></script>
+    <title>Element Plus demo</title>
+    <style>
+        html * {
+            font-size: 1em !important;
+            /*color: #000 !important;*/
+            font-family: "PingFang SC", serif !important;
+        }
+        .el-row {
+            margin-bottom: 20px;
+        }
+        .el-col {
+            border-radius: 4px;
+        }
+        .bg-purple-dark {
+            background: #99a9bf;
+        }
+        .bg-purple {
+            background: #d3dce6;
+        }
+        .bg-purple-light {
+            background: #e5e9f2;
+        }
+        .grid-content {
+            border-radius: 4px;
+            min-height: 36px;
+        }
+        .row-bg {
+            padding: 10px 0;
+            background-color: #f9fafc;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+
+    <el-container>
+        <el-header>
+            header
+        </el-header>
+        <el-aside>
+            aside
+        </el-aside>
+        <el-main>
+            <el-switch
+                    style="display: block"
+                    v-model="onOff"
+                    active-color="#13ce66"
+                    inactive-color="#ff4949"
+                    active-text="开"
+                    inactive-text="关">
+            </el-switch>
+        </el-main>
+    </el-container>
+
+
+    Current temp: <b>{{ curnTemp }}</b>
+    <br>
+    Current mode: <b>{{ curnMode }}</b>
+    <el-row :gutter="20">
+        <el-col :span="6">
+            <el-button v-show=true v-on:click="tempUp($event)" round>+</el-button>
+        </el-col>
+        <el-col :span="6">
+            <el-button v-on:click="tempDown($event)" round>-</el-button>
+        </el-col>
+    </el-row>
+    <el-row :gutter="20">
+        <el-col :span="6">
+            <el-button v-on:click="ChangeMode($event,'Cooling')" type="CoolingType" round>Cooling</el-button>
+        </el-col>
+        <el-col :span="6">
+            <el-button v-on:click="ChangeMode($event,'Heating')" :type="HeatingType" round>Heating</el-button>
+        </el-col>
+    </el-row>
+</div>
+<script>
+    const App = {
+        data: function () {
+            return {
+                curnTemp: 26,
+                curnMode: 'Cooling',
+                buttonType: 'primary',
+                onOff: true
+
+            }
+        },
+
+        computed: {
+
+            changeButton: function () {
+                let buttonStatus = false;
+                if (this.data.all > 0) {
+                    buttonStatus = true
+                } else {
+                    buttonStatus = false
+                }
+                return buttonStatus;
+            }
+
+
+        },
+
+        methods: {
+            tempUp: function (event) {
+                this.curnTemp += 1
+                let target = event.target;
+                if (target.nodeName === "SPAN") {
+                    target = event.target.parentNode;
+                }
+                target.blur();
+            },
+            tempDown: function (event) {
+                this.curnTemp -= 1
+                let target = event.target;
+                if (target.nodeName === "SPAN") {
+                    target = event.target.parentNode;
+                }
+                target.blur();
+            },
+            ChangeMode: function (event, ToMode) {
+                this.curnMode = ToMode
+                let that = this
+                if (target.nodeName === "SPAN") {
+                    target = event.target.parentNode;
+                }
+                target.blur();
+            }
+        }
+    };
+    const app = Vue.createApp(App);
+    app.use(ElementPlus);
+    app.mount("#app");
+</script>
+</body>
+</html>
