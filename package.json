@@ -8,9 +8,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ant-design-vue": "^1.7.4",
+    "view-design": "^4.5.0",
     "vue": "^2.6.12"
   },
-  "devDependencies": {},
   "keywords": [],
   "description": ""
 }
